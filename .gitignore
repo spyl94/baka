@@ -1,0 +1,25 @@
+/web/bundles/
+/app/bootstrap.php.cache
+/app/cache/*
+/app/config/parameters.yml
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+/build/
+/vendor/
+/bin/
+/composer.phar
+
+/* Assets */
+/web/assets/css/
+/web/assets/js/
+/web/assets/vendor/
+/web/assets/tmp/
+
+node_modules
+node_modules/
+npm-debug.log
+.sass-cache/
+
+/vagrant/.vagrant/
+

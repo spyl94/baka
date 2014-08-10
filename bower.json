@@ -1,0 +1,22 @@
+{
+  "name": "sf-sandbox-angular",
+  "version": "0.0.0",
+  "authors": [
+    "spyl <contact@spyl.net>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.21"
+  }
+}
