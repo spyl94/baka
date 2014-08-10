@@ -1,0 +1,9 @@
+spyl_baka:
+    resource: "@SpylBakaBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+spyl_baka_api_manga:
+    resource: "Spyl\Bundle\BakaBundle\Controller\Api\MangaController"
+    type:     rest
+    prefix:   /api/

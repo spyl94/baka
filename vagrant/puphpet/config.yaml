@@ -16,6 +16,7 @@ vagrantfile-local:
         provider:
             virtualbox:
                 modifyvm:
+                    name: baka-vm
                     natdnshostresolver1: on
                 setextradata:
                     VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root: 1
