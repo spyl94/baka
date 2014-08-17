@@ -1,0 +1,22 @@
+default:
+    formatters:
+        pretty:
+            verbose:  true
+            paths:    false
+            snippets: false
+    extensions:
+           Behat\MinkExtension:
+               sessions:
+                   default:
+                       symfony2: ~
+                   javascript:
+                       selenium2: ~
+               browser_name: firefox
+               show_auto:    false
+               #base_url: http://sylius-test.local/app_test.php/
+           Behat\Symfony2Extension: ~
+    suites:
+        api:
+            #paths: [ %paths.base%/features/api ]
+            contexts:
+                - Spyl\Bundle\BakaBundle\Behat\MangaContext

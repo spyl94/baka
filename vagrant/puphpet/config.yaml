@@ -36,7 +36,7 @@ vagrantfile-local:
         synced_folder:
             CW6G1sNK6IZG:
                 source: ../
-                target: /var/www
+                target: /var/www/baka
                 sync_type: nfs
                 rsync:
                     args:
@@ -67,25 +67,27 @@ server:
     install: '1'
     packages: {  }
 firewall:
-    install: '1'
+    install: '0'
     rules: null
 apache:
     install: '1'
     settings:
         user: www-data
         group: www-data
-        default_vhost: true
+        default_vhost: false
         manage_user: false
         manage_group: false
         sendfile: 0
     modules:
+        - php
         - rewrite
+        - ssl
     vhosts:
         t3qKpiZtU6c0:
             servername: baka.dev
             serveraliases:
                 - www.baka.dev
-            docroot: /var/www
+            docroot: /var/www/baka/web
             port: '80'
             setenv:
                 - 'APP_ENV dev'
@@ -113,7 +115,7 @@ nginx:
             server_name: baka.dev
             server_aliases:
                 - www.baka.dev
-            www_root: /var/www
+            www_root: /var/www/baka
             listen_port: '80'
             location: .php$
             index_files:
@@ -135,6 +137,7 @@ php:
             - cli
             - intl
             - mcrypt
+            - curl
         pear: {  }
         pecl:
             - pecl_http
@@ -142,6 +145,7 @@ php:
         display_errors: On
         error_reporting: '-1'
         session.save_path: /var/lib/php/session
+        memory_limit: 512M
     timezone: Europe/Paris
     mod_php: 0
 hhvm:

@@ -1,25 +1,35 @@
-/web/bundles/
-/app/bootstrap.php.cache
-/app/cache/*
-/app/config/parameters.yml
-/app/logs/*
+app/*\.cache
+app/cache/*
+app/logs/*
+
+app/bootstrap.php.cache
+app/config/parameters.yml
+
 !app/cache/.gitkeep
 !app/logs/.gitkeep
-/build/
-/vendor/
-/bin/
-/composer.phar
 
 /* Assets */
-/web/assets/css/
-/web/assets/js/
-/web/assets/vendor/
-/web/assets/tmp/
+
+web/bundles/*
+web/assets/css/
+web/assets/js/
+web/assets/vendor/
+web/assets/tmp/
+
+bin/behat
+bin/doctrine*
+bin/phpspec
+bin/phpunit
+bin/sql-formatter
+bin/security-checker
+
+vendor/*
+composer.phar
 
 node_modules
-node_modules/
-npm-debug.log
-.sass-cache/
+node_modules/*
 
-/vagrant/.vagrant/
+npm-debug.log
+.sass-cache/*
+vagrant/.vagrant/*
 
