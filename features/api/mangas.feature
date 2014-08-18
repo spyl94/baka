@@ -1,7 +1,7 @@
 Feature: Mangas
-	In order to have fun
-	As an anonymous user
-	I want to be able to read mangas
+	In order to display mangas
+	As an anonymous client api user
+	I want to be able to know which mangas are availables
 
 	Background:
 		Given there are following mangas:
@@ -11,8 +11,15 @@ Feature: Mangas
 			| Death Note  |
 
 	Scenario: list mangas
-		Given I request "/mangas"
-		Then the response should be JSON
-		And the response status code should be 200
-
+		Given I send a GET request to "/api/mangas"
+		Then the response status code should be 200
+		And the JSON response should match
+		"""
+			{
+				{
+					'id': '@integer',
+					'name': '@string@'				
+				}
+			}
+		"""
 

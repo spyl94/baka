@@ -1,0 +1,69 @@
+<?php
+
+namespace Spyl\Bundle\BakaBundle\Behat;
+
+use GuzzleHttp\Client;
+use Behat\Gherkin\Node\PyStringNode;
+use Behat\Gherkin\Node\TableNode;
+
+abstract class WebApiContext extends DefaultContext
+{
+    public $client;
+    public $response;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->client = new Client(['base_url' => 'http://baka.dev/app_test/']);
+    }
+
+    /**
+     * Sends HTTP request to specific relative URL.
+     *
+     * @param string $method request method
+     * @param string $url    relative url
+     *
+     * @When /^(?:I )?send a ([A-Z]+) request to "([^"]+)"$/
+     */
+    public function iSendARequest($method, $url)
+    {
+        $request = $this->client->createRequest($method, $url);
+        $this->response = $this->client->send($request);
+    }
+
+    /**
+     * Sends HTTP request to specific URL with field values from Table.
+     *
+     * @param string    $method request method
+     * @param string    $url    relative url
+     * @param TableNode $values   table of values
+     *
+     * @When /^(?:I )?send a ([A-Z]+) request to "([^"]+)" with values:$/
+     */
+    public function iSendARequestWithValues($method, $url, TableNode $table)
+    {
+        $request = $client->createRequest($url, ['json' => $table->getHash()]);
+        $this->response = $this->client->send($request);
+    }
+
+    /**
+     * Checks that response has specific status code.
+     *
+     * @param string $code status code
+     *
+     * @Then /^(?:the )?response status code should be (\d+)$/
+     */
+    public function theResponseStatusCodeShouldBe($code)
+    {
+        \PHPUnit_Framework_Assert::assertSame(intval($code), $this->response->getStatusCode());
+    }
+
+    /**
+     * @Then /^the JSON response should match$/
+     */
+    public function theJsonResponseShouldMatch(PyStringNode $pattern)
+    {
+        $json = $this->response->json();
+        \PHPUnit_Framework_Assert::assertTrue(match($json, $pattern));
+    }
+}

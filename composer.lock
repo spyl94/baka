@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d7408a8c4c597105653bfa4ab29d114f",
+    "hash": "8e61c2c9f96be36098c168446a157ee8",
     "packages": [
         {
             "name": "behat/behat",
@@ -1579,17 +1579,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "d088d32801591e44f6ea6ba97d7f9604339d44ce"
+                "reference": "ef4e18545d76113b52043cfaa3cf9560f2fb3044"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d088d32801591e44f6ea6ba97d7f9604339d44ce",
-                "reference": "d088d32801591e44f6ea6ba97d7f9604339d44ce",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ef4e18545d76113b52043cfaa3cf9560f2fb3044",
+                "reference": "ef4e18545d76113b52043cfaa3cf9560f2fb3044",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/streams": "~2.0",
+                "guzzlehttp/streams": "~2.1",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -1603,7 +1603,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -1636,7 +1636,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-08-17 03:29:57"
+            "time": "2014-08-18 05:38:05"
         },
         {
             "name": "guzzlehttp/streams",
@@ -1644,12 +1644,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/streams.git",
-                "reference": "3e194196d93a19dbc37bbd2f8a34f5c043d0d7ef"
+                "reference": "b7180d527a5098ddb4d5434fe44a08766c0a1e6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/streams/zipball/3e194196d93a19dbc37bbd2f8a34f5c043d0d7ef",
-                "reference": "3e194196d93a19dbc37bbd2f8a34f5c043d0d7ef",
+                "url": "https://api.github.com/repos/guzzle/streams/zipball/b7180d527a5098ddb4d5434fe44a08766c0a1e6a",
+                "reference": "b7180d527a5098ddb4d5434fe44a08766c0a1e6a",
                 "shasum": ""
             },
             "require": {
@@ -1661,7 +1661,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -1689,7 +1689,7 @@
                 "Guzzle",
                 "stream"
             ],
-            "time": "2014-08-17 03:20:59"
+            "time": "2014-08-17 21:29:00"
         },
         {
             "name": "hwi/oauth-bundle",
@@ -3220,12 +3220,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "91ba2757549feb69bdebbb2f13e5251046a1f256"
+                "reference": "de4ebadc9129c97fde6c48c8b2b44f4eb784dd3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/91ba2757549feb69bdebbb2f13e5251046a1f256",
-                "reference": "91ba2757549feb69bdebbb2f13e5251046a1f256",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/de4ebadc9129c97fde6c48c8b2b44f4eb784dd3b",
+                "reference": "de4ebadc9129c97fde6c48c8b2b44f4eb784dd3b",
                 "shasum": ""
             },
             "require": {
@@ -3282,7 +3282,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-08-17 08:30:30"
+            "time": "2014-08-18 00:55:50"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -4091,12 +4091,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "cf8b4e253b248dfe58c3019f0cd71756edca6691"
+                "reference": "bb9552f2f6749d7eb9a630a3341fcb9b3916e72f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/cf8b4e253b248dfe58c3019f0cd71756edca6691",
-                "reference": "cf8b4e253b248dfe58c3019f0cd71756edca6691",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/bb9552f2f6749d7eb9a630a3341fcb9b3916e72f",
+                "reference": "bb9552f2f6749d7eb9a630a3341fcb9b3916e72f",
                 "shasum": ""
             },
             "require": {
@@ -4197,7 +4197,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-08-15 09:42:11"
+            "time": "2014-08-18 11:55:07"
         },
         {
             "name": "twig/extensions",
@@ -5008,12 +5008,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "301f0023fe30d242243b8f7549f3c9879ebe137e"
+                "reference": "3d7db1ebfd786ed4410bf032b2aca1adad820bcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/301f0023fe30d242243b8f7549f3c9879ebe137e",
-                "reference": "301f0023fe30d242243b8f7549f3c9879ebe137e",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/3d7db1ebfd786ed4410bf032b2aca1adad820bcd",
+                "reference": "3d7db1ebfd786ed4410bf032b2aca1adad820bcd",
                 "shasum": ""
             },
             "require": {
@@ -5074,7 +5074,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2014-08-16 13:20:26"
+            "time": "2014-08-18 09:43:47"
         },
         {
             "name": "phpspec/prophecy",

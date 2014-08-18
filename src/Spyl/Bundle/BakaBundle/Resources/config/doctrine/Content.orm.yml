@@ -1,0 +1,15 @@
+Spyl\Bundle\BakaBundle\Model\Content:
+  type: entity
+  table: content
+  id:
+    id:
+      type: string
+    manga:
+      associationKey: true
+  manyToOne:
+     manga:
+       targetEntity: Spyl\Bundle\BakaBundle\Model\Manga
+  fields:
+    name:
+      type: string
+      length: 255

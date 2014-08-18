@@ -21,7 +21,7 @@ class MangaControllerSpec extends ObjectBehavior
     function it_lists_mangas()
     {
     	$request = new Request();
-    	$response = $this->getMangasAction($request);
+    	$response = $this->cgetMangasAction($request);
     	//$response->shouldHaveType('Symfony\Component\HttpFoundation\JsonResponse');
     }
 

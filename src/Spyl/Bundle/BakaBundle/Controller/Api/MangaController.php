@@ -30,9 +30,9 @@ class MangaController extends FOSRestController
      *
      * @return array
      */
-    public function getMangasAction(Request $request)
+    public function cgetMangasAction(Request $request)
     {
-        // TODO: write logic here
+       return $this->container->get('doctrine.entity_manager')->getRepository('SpylBakaBundle:Manga')->findAll();
     }
 
 	/**
