@@ -2,4 +2,6 @@ services:
     baka.page_reader:
         class: Spyl\Bundle\BakaBundle\Reader\PageReader
         arguments: 
+            - %upload_path%
             - %upload_dir%
+            - @router

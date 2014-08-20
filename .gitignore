@@ -15,6 +15,7 @@ web/assets/css/
 web/assets/js/
 web/assets/vendor/
 web/assets/tmp/
+web/uploads/*
 
 bin/behat
 bin/doctrine*

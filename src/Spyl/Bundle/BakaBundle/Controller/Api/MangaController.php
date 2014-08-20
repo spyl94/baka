@@ -75,7 +75,7 @@ class MangaController extends FOSRestController
 
         $content = $em->getRepository('SpylBakaBundle:Content')->findOneBy([
         	"id" => $contentId, 
-        	"manga" => $em->getReference('SpylBakaBundle:Manga', $mangaId)
+        	"manga" => $em->getReference('Spyl\Bundle\BakaBundle\Model\Manga', $mangaId)
         ]);
 
         if (!$content) {

@@ -17,10 +17,4 @@ class MangaControllerSpec extends ObjectBehavior
     {
     	$this->shouldHaveType('FOS\RestBundle\Controller\FOSRestController');
     }
-
-    function it_lists_mangas()
-    {
-    	$request = new Request();
-    	$response = $this->cgetMangasAction($request);
-    }
 }
