@@ -1,0 +1,11 @@
+Spyl\Bundle\BakaBundle\Model\Manga:
+  exclusion_policy: ALL
+  properties:
+    id:
+      expose: true
+    name:
+      expose: true
+    image:
+      expose: true
+    contents:
+      expose: false

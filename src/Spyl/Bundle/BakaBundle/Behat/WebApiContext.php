@@ -14,7 +14,7 @@ abstract class WebApiContext extends DefaultContext
     public function __construct()
     {
         parent::__construct();
-        $this->client = new Client(['base_url' => 'http://baka.dev/app_test/']);
+        $this->client = new Client(['base_url' => 'http://baka.dev/']);
     }
 
     /**
@@ -27,7 +27,7 @@ abstract class WebApiContext extends DefaultContext
      */
     public function iSendARequest($method, $url)
     {
-        $request = $this->client->createRequest($method, $url);
+        $request = $this->client->createRequest($method, 'app_test.php'.$url);
         $this->response = $this->client->send($request);
     }
 
@@ -55,15 +55,15 @@ abstract class WebApiContext extends DefaultContext
      */
     public function theResponseStatusCodeShouldBe($code)
     {
-        \PHPUnit_Framework_Assert::assertSame(intval($code), $this->response->getStatusCode());
+        \PHPUnit_Framework_Assert::assertSame(intval($code), intval($this->response->getStatusCode()));
     }
 
     /**
-     * @Then /^the JSON response should match$/
+     * @Then /^the JSON response should match:$/
      */
     public function theJsonResponseShouldMatch(PyStringNode $pattern)
     {
-        $json = $this->response->json();
-        \PHPUnit_Framework_Assert::assertTrue(match($json, $pattern));
+        $json = $this->response->json(); // check if json
+        \PHPUnit_Framework_Assert::assertTrue(match((string) $this->response->getBody(), $pattern->getRaw()));
     }
 }

@@ -12,13 +12,13 @@ class MangaContext extends WebApiContext
      */
     public function thereAreMangas(TableNode $table)
     {
-        $manager = $this->getEntityManager();
+/*        $manager = $this->getEntityManager();
         //$repository = $manager->getRepository('SpylBakaBundle:Manga');
 
         foreach ($table->getHash() as $data) {
             //$manager->persist($data);
         }
 
-        $manager->flush();
+        $manager->flush();*/
     }
 }

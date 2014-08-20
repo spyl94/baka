@@ -26,13 +26,14 @@ class MangaController extends FOSRestController
      *
      * @Annotations\View()
      *
-     * @param Request               $request      the request object
+     * @param Request $request the request object
      *
      * @return array
      */
     public function cgetMangasAction(Request $request)
     {
-       return $this->container->get('doctrine.entity_manager')->getRepository('SpylBakaBundle:Manga')->findAll();
+        $em = $this->getDoctrine()->getManager();
+        return $em->getRepository('SpylBakaBundle:Manga')->findAll();
     }
 
 	/**
@@ -57,19 +58,32 @@ class MangaController extends FOSRestController
      */
     public function getMangaAction(Request $request, $id)
     {
-
-    	$manga = $this->container->get('doctrine.entity_manager')->getRepository('SpylBakaBundle:Manga')->find($id);
+    	$em = $this->getDoctrine()->getManager();
+    	$manga = $em->getRepository('SpylBakaBundle:Manga')->find($id);
 
         if (!$manga) {
             throw $this->createNotFoundException("Manga does not exist.");
         }
 
-        return $manga;
+        return $manga->getContents();
     }
 
 
-    public function getMangaReadableAction(Request $request, $id)
+    public function getMangaContentAction($mangaId, $contentId)
     {
-        // TODO: write logic here
+        $em = $this->getDoctrine()->getManager();
+
+        $content = $em->getRepository('SpylBakaBundle:Content')->findOneBy([
+        	"id" => $contentId, 
+        	"manga" => $em->getReference('SpylBakaBundle:Manga', $mangaId)
+        ]);
+
+        if (!$content) {
+            throw $this->createNotFoundException("Content does not exist.");
+        }
+
+        $files = $this->get('baka.page_reader')->listPages($content);
+
+        return $files;
     }
 }

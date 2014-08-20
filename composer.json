@@ -47,6 +47,7 @@
         "guzzlehttp/guzzle":                 "4.*",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "fzaninotto/faker":                  "~1.2",
+        "vipsoft/doctrine-data-fixtures-extension": "3.0.*@dev",
         "phpspec/phpspec":                   "~2.0",
         "phpunit/phpunit":                   "~4.0"
     },

@@ -1,7 +1,11 @@
 Spyl\Bundle\BakaBundle\Model\Manga:
   type: entity
   table: manga
-  #repositoryClass: Spyl\Bundle\BakaBundle\Repository\MangaRepository
+  repositoryClass: Spyl\Bundle\BakaBundle\Repository\MangaRepository
+  oneToMany:
+      contents:
+        targetEntity: Spyl\Bundle\BakaBundle\Model\Content
+        mappedBy: manga
   fields:
     id:
       type: string

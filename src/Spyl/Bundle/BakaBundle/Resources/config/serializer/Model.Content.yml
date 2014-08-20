@@ -1,0 +1,7 @@
+Spyl\Bundle\BakaBundle\Model\Content:
+  exclusion_policy: ALL
+  properties:
+    id:
+      expose: true
+    name:
+      expose: true

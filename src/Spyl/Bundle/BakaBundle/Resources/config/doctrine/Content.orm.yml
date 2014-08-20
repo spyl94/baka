@@ -9,6 +9,10 @@ Spyl\Bundle\BakaBundle\Model\Content:
   manyToOne:
      manga:
        targetEntity: Spyl\Bundle\BakaBundle\Model\Manga
+       inversedBy: contents
+       joinColumn:
+         name: manga_id
+         referencedColumnName: id
   fields:
     name:
       type: string

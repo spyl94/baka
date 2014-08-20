@@ -22,26 +22,5 @@ class MangaControllerSpec extends ObjectBehavior
     {
     	$request = new Request();
     	$response = $this->cgetMangasAction($request);
-    	//$response->shouldHaveType('Symfony\Component\HttpFoundation\JsonResponse');
-    }
-
-    function it_lists_a_manga_content()
-    {
-    	$request = new Request();
-    	$this->shouldThrow('Symfony\Component\HttpKernel\Exception\NotFoundHttpException')
-    		 ->during('getMangaAction', [$request, -1]);
-
-/*    	$response = $this->getMangaAction($request, 1);*/
-    	//$response->shouldHaveType('Symfony\Component\HttpFoundation\JsonResponse');
-    }
-
-    function it_lists_a_manga_readable_content()
-    {
-    	$request = new Request();
-    	$this->shouldThrow('Symfony\Component\HttpKernel\Exception\NotFoundHttpException')
-    		 ->during('getMangaReadableAction', [$request, -1]);
-
-/*    	$response = $this->getMangaAction($request, 1);*/
-    	//$response->shouldHaveType('Symfony\Component\HttpFoundation\JsonResponse');
     }
 }

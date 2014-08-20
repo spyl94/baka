@@ -44,9 +44,6 @@ abstract class DefaultContext extends RawMinkContext implements Context, KernelA
         $this->kernel = $kernel;
     }
 
-    /**
-     * @BeforeScenario
-     */
     public function purgeDatabase(BeforeScenarioScope $scope)
     {
         $purger = new ORMPurger($this->getService('doctrine.orm.entity_manager'));
