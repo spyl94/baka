@@ -63,7 +63,7 @@ abstract class WebApiContext extends DefaultContext
      */
     public function theJsonResponseShouldMatch(PyStringNode $pattern)
     {
-        $json = $this->response->json(); // check if json
+        $this->response->json(); // check if json
         \PHPUnit_Framework_Assert::assertTrue(match((string) $this->response->getBody(), $pattern->getRaw()));
     }
 }

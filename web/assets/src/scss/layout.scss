@@ -3,11 +3,9 @@
  */
 
 @import "base";
-
-/* @import "../vendor/sass-bootstrap/lib/bootstrap";
- */
+@import "../../vendor/bootstrap-sass-official/assets/stylesheets/bootstrap/bootstrap.scss";
 
 table {
   background: white;
- margin: 0;
+  margin: 0;
 }

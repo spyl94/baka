@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.21"
+    "angular": "~1.2.21",
+    "bootstrap-sass-official": "~3.2.0+1"
   }
 }

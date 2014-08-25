@@ -23,7 +23,7 @@
         "jms/serializer-bundle": "0.13.0",
         "jms/translation-bundle": "1.1.*@dev",
         "jms/i18n-routing-bundle": "dev-master",
-        "willdurand/js-translation-bundle": "2.0.*@dev",
+        "willdurand/js-translation-bundle": "2.1.*@dev",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "friendsofsymfony/jsrouting-bundle": "1.5.*@dev",
         "friendsofsymfony/rest-bundle": "1.1.*",
@@ -45,9 +45,7 @@
         "behat/mink-selenium2-driver":       "@dev",
         "guzzle/guzzle":                     "2.4.*",
         "guzzlehttp/guzzle":                 "4.*",
-        "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "fzaninotto/faker":                  "~1.2",
-        "vipsoft/doctrine-data-fixtures-extension": "3.0.*@dev",
         "phpspec/phpspec":                   "~2.0",
         "phpunit/phpunit":                   "~4.0"
     },
