@@ -6,12 +6,15 @@ var gulp       = require('gulp'),
     jshint     = require('gulp-jshint'),
     concat     = require('gulp-concat'),
     livereload = require('gulp-livereload'),
-    coffeeify  = require('gulp-coffeeify');
+    coffeeify  = require('gulp-coffeeify')
+    ngAnnotate = require('gulp-ng-annotate')
+    uglify     = require('gulp-uglify')
+    sourcemaps = require('gulp-sourcemaps');
 
 var paths = {
 	scss: './web/assets/src/scss',
 	css_compiled: './web/assets/css',
-	js_compiled: '.web/assets/js',
+	js_compiled: './web/assets/js',
 	js: './web/assets/src/js',
 	coffee: './web/assets/src/coffee/*.coffee',
 	img: './web/assets/img'
@@ -60,10 +63,20 @@ gulp.task('lint', function() {
     // .pipe(livereload({ auto: false }));
 });
 
+gulp.task('js', function () {
+  gulp.src([paths.js + '/**/module.js', paths.js + '/**/*.js'])
+  .pipe(sourcemaps.init())
+    .pipe(concat('app.js'))
+    .pipe(ngAnnotate())
+    .pipe(uglify())
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest(paths.js_compiled))
+});
+
 gulp.task('watch', function() {
 	  // livereload.listen();
     gulp.watch(paths.scss + '/**/*.scss', ['sass']);
-    gulp.watch(paths.js + '/**/*.js', ['lint']);
+    gulp.watch(paths.js + '/**/*.js', ['lint', 'js']);
 });
 
-gulp.task('default', ['sass', 'lint']);
+gulp.task('default', ['sass', 'lint', 'js']);

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "609423656cfb5b9d168dbfaea06b3773",
+    "hash": "6c12359afcb724e3fbea2cbe61d03732",
     "packages": [
         {
             "name": "behat/behat",
@@ -4301,26 +4301,27 @@
         },
         {
             "name": "willdurand/js-translation-bundle",
-            "version": "v2.0.0",
+            "version": "dev-master",
             "target-dir": "Bazinga/Bundle/JsTranslationBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/BazingaJsTranslationBundle.git",
-                "reference": "3d1e0b1fafadcbd10475f05c3db84633eb186c32"
+                "reference": "91c2ce8cb14fa4c1de9a6db4476139e29d5997a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/BazingaJsTranslationBundle/zipball/3d1e0b1fafadcbd10475f05c3db84633eb186c32",
-                "reference": "3d1e0b1fafadcbd10475f05c3db84633eb186c32",
+                "url": "https://api.github.com/repos/willdurand/BazingaJsTranslationBundle/zipball/91c2ce8cb14fa4c1de9a6db4476139e29d5997a2",
+                "reference": "91c2ce8cb14fa4c1de9a6db4476139e29d5997a2",
                 "shasum": ""
             },
             "require": {
                 "symfony/console": "~2.3",
                 "symfony/finder": "~2.3",
-                "symfony/framework-bundle": "~2.3"
+                "symfony/framework-bundle": "~2.3",
+                "symfony/intl": "~2.3"
             },
             "replace": {
-                "willdurand/expose-translation-bundle": "2.0.*"
+                "willdurand/expose-translation-bundle": "2.1.*"
             },
             "require-dev": {
                 "symfony/browser-kit": "~2.3",
@@ -4330,7 +4331,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -4345,8 +4346,7 @@
             "authors": [
                 {
                     "name": "William Durand",
-                    "email": "william.durand1@gmail.com",
-                    "homepage": "http://www.willdurand.fr"
+                    "email": "william.durand1@gmail.com"
                 }
             ],
             "description": "A pretty nice way to expose your translation messages to your JavaScript.",
@@ -4355,7 +4355,7 @@
                 "symfony",
                 "translation"
             ],
-            "time": "2014-01-20 16:17:52"
+            "time": "2014-07-29 09:47:40"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -4999,12 +4999,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/phpspec.git",
-                "reference": "fb6e95b94d4d060f6ad2e4e5eae6e8a405c68b3f"
+                "reference": "6d982b28313c4775bd3f2e9facfb11fc5c564499"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/fb6e95b94d4d060f6ad2e4e5eae6e8a405c68b3f",
-                "reference": "fb6e95b94d4d060f6ad2e4e5eae6e8a405c68b3f",
+                "url": "https://api.github.com/repos/phpspec/phpspec/zipball/6d982b28313c4775bd3f2e9facfb11fc5c564499",
+                "reference": "6d982b28313c4775bd3f2e9facfb11fc5c564499",
                 "shasum": ""
             },
             "require": {
@@ -5012,6 +5012,7 @@
                 "php": ">=5.3.3",
                 "phpspec/php-diff": "~1.0.0",
                 "phpspec/prophecy": "~1.1",
+                "sebastian/exporter": "~1.0",
                 "symfony/console": "~2.1",
                 "symfony/event-dispatcher": "~2.1",
                 "symfony/finder": "~2.1",
@@ -5065,7 +5066,7 @@
                 "testing",
                 "tests"
             ],
-            "time": "2014-08-23 14:57:19"
+            "time": "2014-08-25 12:21:05"
         },
         {
             "name": "phpspec/prophecy",
@@ -5172,68 +5173,6 @@
             ],
             "description": "This bundle generates code for you",
             "time": "2014-08-08 10:34:11"
-        },
-        {
-            "name": "vipsoft/doctrine-data-fixtures-extension",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vipsoft/DoctrineDataFixturesExtension.git",
-                "reference": "e673566d9e6bed3322891c7f8f90800ceddbd8a9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vipsoft/DoctrineDataFixturesExtension/zipball/e673566d9e6bed3322891c7f8f90800ceddbd8a9",
-                "reference": "e673566d9e6bed3322891c7f8f90800ceddbd8a9",
-                "shasum": ""
-            },
-            "require": {
-                "behat/behat": "~3.0.6",
-                "behat/symfony2-extension": "2.0.x-dev",
-                "doctrine/data-fixtures": "~1.0",
-                "php": ">=5.3.6"
-            },
-            "require-dev": {
-                "doctrine/doctrine-bundle": "~1.2",
-                "doctrine/orm": "~2.2,>=2.2.3",
-                "phpspec/phpspec": "2.1.x-dev",
-                "phpunit/phpunit": "3.7.*"
-            },
-            "suggest": {
-                "doctrine/migrations": "Uses DBAL to load versioned database schema and migration classes"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0.x-dev",
-                    "dev-2.5": "2.5.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "VIPSoft\\DoctrineDataFixturesExtension": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Anthon Pang",
-                    "email": "apang@softwaredevelopment.ca",
-                    "role": "developer"
-                }
-            ],
-            "description": "Doctrine data fixtures extension for Behat",
-            "homepage": "http://github.com/vipsoft/",
-            "keywords": [
-                "BDD",
-                "Behat",
-                "Data fixtures",
-                "doctrine"
-            ],
-            "time": "2014-07-14 14:48:43"
         }
     ],
     "aliases": [
@@ -5257,8 +5196,7 @@
         "behat/mink-extension": 20,
         "behat/mink": 20,
         "behat/mink-browserkit-driver": 20,
-        "behat/mink-selenium2-driver": 20,
-        "vipsoft/doctrine-data-fixtures-extension": 20
+        "behat/mink-selenium2-driver": 20
     },
     "prefer-stable": false,
     "platform": {
