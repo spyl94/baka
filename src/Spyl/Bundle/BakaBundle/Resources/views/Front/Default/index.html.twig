@@ -4,8 +4,10 @@
 <div ng-controller="MangasCtrl">
   <ul>
     <li ng-repeat="manga in mangas">
-      {[{ manga.name }]}
-      <p>{[{ manga.id }]}</p>
+      <a href="#/mangas/{[{ manga.id }]}">
+        <img ng-src="{[{ manga.image }]}">
+        {[{ manga.name }]}
+      </a>
     </li>
   </ul>
 </div>
