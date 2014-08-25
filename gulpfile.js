@@ -15,7 +15,7 @@ var paths = {
 	js: './web/assets/src/js',
 	coffee: './web/assets/src/coffee/*.coffee',
 	img: './web/assets/img'
-}
+};
 
 var jsFile = 'app.js';
 
@@ -54,7 +54,7 @@ gulp.task('coffee', function() {
 gulp.task('lint', function() {
   gulp.src(paths.js + '/**/*.js')
     .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+    .pipe(jshint.reporter('default'))
     .pipe(livereload({ auto: false }));
 });
 

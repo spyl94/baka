@@ -4,11 +4,12 @@ Feature: Mangas
 	I want to be able to know which mangas are availables
 
 	Background:
-		Given there are following mangas:
-			| name        |
-			| Naruto      |
-			| One Piece   |
-			| Death Note  |
+		Given there are mangas with content fixtures
+		And there are the following manga pages:
+			| manga      | content | page    |
+			| Naruto     | Tome 01 | 000.jpg |
+			| Naruto     | Tome 01 | 001.jpg |
+			| One Piece  | Tome 01 | 000.jpg |
 
 	Scenario: list mangas
 		Given I send a GET request to "/api/mangas"
@@ -19,17 +20,17 @@ Feature: Mangas
 	{
 		"id": @string@,
 		"name": @string@,
-		"image": @string@			
+		"image": @string@
 	},
 	{
 		"id": @string@,
 		"name": @string@,
-		"image": @string@			
+		"image": @string@
 	},
 	{
 		"id": @string@,
 		"name": @string@,
-		"image": @string@			
+		"image": @string@
 	}
 ]
 """
@@ -41,11 +42,11 @@ Feature: Mangas
 [
 	{
 		"id": @string@,
-		"name": @string@		
+		"name": @string@
 	},
 	{
 		"id": @string@,
-		"name": @string@	
+		"name": @string@
 	}
 ]
 """

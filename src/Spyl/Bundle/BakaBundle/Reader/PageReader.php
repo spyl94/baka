@@ -37,7 +37,7 @@ class PageReader
            }
             return $pages;
         } catch (\Exception $e) {
-            return $pages;
+            return [];
         }
     }
 }

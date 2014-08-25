@@ -3,11 +3,11 @@
 namespace Spyl\Bundle\BakaBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Spyl\Bundle\BakaBundle\Model\Content;
 
-class LoadMangaContentData extends AbstractFixture implements OrderedFixtureInterface
+class LoadMangaContentData extends AbstractFixture implements DependentFixtureInterface
 {
     public $data = [
         [
@@ -49,8 +49,10 @@ class LoadMangaContentData extends AbstractFixture implements OrderedFixtureInte
     /**
      * {@inheritDoc}
      */
-    public function getOrder()
+    public function getDependencies()
     {
-        return 2;
+        return [
+            'Spyl\Bundle\BakaBundle\DataFixtures\ORM\LoadMangaData',
+        ];
     }
 }

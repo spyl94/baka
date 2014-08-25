@@ -191,7 +191,7 @@ nodejs:
 mysql:
     install: '1'
     root_password: '123'
-    adminer: '1'
+    adminer: 0
     databases:
         ZzrWPmMB0H68:
             grant:

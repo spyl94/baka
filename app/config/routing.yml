@@ -1,5 +1,5 @@
 spyl_baka:
-    resource: "@SpylBakaBundle/Controller/"
+    resource: "Spyl\Bundle\BakaBundle\Controller\Front\DefaultController"
     type:     annotation
     prefix:   /
 

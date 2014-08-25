@@ -3,11 +3,10 @@
 namespace Spyl\Bundle\BakaBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Spyl\Bundle\BakaBundle\Model\Manga;
 
-class LoadMangaData extends AbstractFixture implements OrderedFixtureInterface
+class LoadMangaData extends AbstractFixture
 {
     public $data = [
         [
@@ -45,13 +44,5 @@ class LoadMangaData extends AbstractFixture implements OrderedFixtureInterface
         }
 
         $manager->flush();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getOrder()
-    {
-        return 1;
     }
 }

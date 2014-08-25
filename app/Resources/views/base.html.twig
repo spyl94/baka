@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="myApp">
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        {% block javascripts %}
-            <script type="text/javascript" src="{{ asset('assets/vendor/angular/angular.min.js')}}"></script>
-        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
     </body>
+    {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('assets/vendor/angular/angular.min.js')}}"></script>
+    {% endblock %}
 </html>

@@ -6,9 +6,14 @@ use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\BeforeScenarioScope;
 use Behat\MinkExtension\Context\RawMinkContext;
 use Behat\Symfony2Extension\Context\KernelAwareContext;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\Purger\ORMPurger;
+use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\Loader;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
+
 use Faker\Factory as FakerFactory;
 use Faker\Generator;
 
@@ -16,6 +21,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+
 
 abstract class DefaultContext extends RawMinkContext implements Context, KernelAwareContext
 {
@@ -44,7 +50,7 @@ abstract class DefaultContext extends RawMinkContext implements Context, KernelA
         $this->kernel = $kernel;
     }
 
-    public function purgeDatabase(BeforeScenarioScope $scope)
+    public function purgeDatabase()
     {
         $purger = new ORMPurger($this->getService('doctrine.orm.entity_manager'));
         $purger->purge();
@@ -80,6 +86,18 @@ abstract class DefaultContext extends RawMinkContext implements Context, KernelA
     protected function getService($id)
     {
         return $this->getContainer()->get($id);
+    }
+
+    /**
+     * Get parameter by id.
+     *
+     * @param string $id
+     *
+     * @return object
+     */
+    protected function getParameter($id)
+    {
+        return $this->getContainer()->getParameter($id);
     }
 
     /**
@@ -125,34 +143,47 @@ abstract class DefaultContext extends RawMinkContext implements Context, KernelA
     }
 
     /**
-     * Presses button with specified id|name|title|alt|value.
+     * Load a data fixture class
+     *
+     * @param \Doctrine\Common\DataFixtures\Loader $loader    Data fixtures loader
+     * @param string                               $className Class name of fixture
      */
-    protected function pressButton($button)
+    public function loadFixtureClass(Loader $loader, $className)
     {
-        $this->getSession()->getPage()->pressButton($this->fixStepArgument($button));
+        $fixture = new $className();
+        if ($loader->hasFixture($fixture)) {
+            unset($fixture);
+            return;
+        }
+        $loader->addFixture(new $className);
+        if ($fixture instanceof DependentFixtureInterface) {
+            foreach ($fixture->getDependencies() as $dependency) {
+                $this->loadFixtureClass($loader, $dependency);
+            }
+        }
     }
 
     /**
-     * Clicks link with specified id|title|alt|text.
+     * Load a data fixture class
+     *
+     * @param \Doctrine\Common\DataFixtures\Loader $loader     Data fixtures loader
+     * @param array                                $classNames Array of class names of fixtures
      */
-    protected function clickLink($link)
+    public function loadFixtureClasses(Loader $loader, array $classNames)
     {
-        $this->getSession()->getPage()->clickLink($this->fixStepArgument($link));
+        foreach ($classNames as $className) {
+            $this->loadFixtureClass($loader, $className);
+        }
     }
 
     /**
-     * Fills in form field with specified id|name|label|value.
+     * Execute the fixtures
+     *
+     * @param \Doctrine\Common\DataFixtures\Loader $loader     Data fixtures loader
      */
-    protected function fillField($field, $value)
+    public function purgeAndExecuteFixtures(Loader $loader)
     {
-        $this->getSession()->getPage()->fillField($this->fixStepArgument($field), $this->fixStepArgument($value));
-    }
-
-    /**
-     * Selects option in select field with specified id|name|label|value.
-     */
-    public function selectOption($select, $option)
-    {
-        $this->getSession()->getPage()->selectFieldOption($this->fixStepArgument($select), $this->fixStepArgument($option));
+        $executor = new ORMExecutor($this->getService('doctrine.orm.entity_manager'), new ORMPurger());
+        $executor->execute($loader->getFixtures());
     }
 }
