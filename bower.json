@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "angular": "~1.2.21",
+    "angular-resource": "~1.2.23",
     "bootstrap-sass-official": "~3.2.0+1"
   }
 }
