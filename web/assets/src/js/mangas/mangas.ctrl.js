@@ -1,6 +1,4 @@
 angular.module('baka')
-    .controller('MangasCtrl', ['$scope', function ($scope) {
-
-    $scope.text = 'Hello, Angular fanatic.';
-
-}]);
+    .controller('MangasCtrl', function ($scope, Mangas) {
+    $scope.mangas = Mangas.query();
+});
