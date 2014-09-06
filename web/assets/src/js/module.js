@@ -8,6 +8,8 @@ angular.module('baka', [
     $interpolateProvider.startSymbol('{[{');
     $interpolateProvider.endSymbol('}]}');
 
+    //RestangularProvider.setBaseUrl('/api/v1');
+
     $routeProvider.
       when('/', {
         templateUrl: 'assets/src/partials/manga-list.html',

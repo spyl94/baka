@@ -1,7 +1,9 @@
+'use strict';
+
 angular.module('api')
-  .factory("Mangas", function ($resource) {
+  .factory('Mangas', function ($resource) {
     return $resource(
-        "/api/mangas/:id",
-        {id: "@id" }
+        '/api/mangas/:id',
+        {id: '@id' }
     );
 });

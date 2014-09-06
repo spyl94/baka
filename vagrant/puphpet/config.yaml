@@ -188,6 +188,7 @@ nodejs:
         - gulp
         - compass
         - grunt
+        - protractor
 mysql:
     install: '1'
     root_password: '123'
