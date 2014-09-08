@@ -35,7 +35,7 @@ after "symfony:cache:warmup", "assets:install"
 namespace :assets do
   desc "Compile assets"
   task :install, :except => { :no_release => true }, :roles => :app do
-    run "cd #{latest_release} && npm install && bower install && gulp"
+    run "cd #{latest_release} && npm install && bower install --allow-root && gulp"
     puts "--> Gulp executed".green
   end
 end
