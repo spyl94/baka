@@ -17,7 +17,7 @@ role :app,        domain, :primary => true       # This may be the same as your 
 set  :keep_releases,  3
 
 set :shared_files, ["app/config/parameters.yml"]
-set :shared_children, [app_path + "/logs", web_path + "/uploads", "vendor"]
+set :shared_children, [app_path + "/logs", web_path + "/uploads", "vendor", "node_modules"]
 set :use_composer, true
 
 set :writable_dirs, ["app/cache", "app/logs"]
@@ -28,3 +28,14 @@ set :use_set_permissions, true
 
 # Be more verbose by uncommenting the following line
 logger.level = Logger::MAX_LEVEL
+
+after "symfony:cache:warmup", "assets:install"
+
+# Custom(ised) tasks
+namespace :assets do
+  desc "Compile assets"
+  task :install, :except => { :no_release => true }, :roles => :app do
+    run "npm install && bower install && gulp"
+    puts "--> Gulp executed".green
+  end
+end
