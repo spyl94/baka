@@ -20,9 +20,9 @@
     "angular": "~1.2.21",
     "angular-resource": "~1.2.23",
     "angular-route": "~1.2.23",
-    "bootstrap-sass-official": "~3.2.0+2"
+    "bootstrap-sass-official": "v3.2.0+2"
   },
   "resolutions": {
-    "bootstrap-sass-official": "~3.2.0+2"
+    "bootstrap-sass-official": "v3.2.0+2"
   }
 }
