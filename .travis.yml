@@ -8,6 +8,9 @@ cache:
     directories:
         - ~/.composer/cache
 
+git:
+  submodules: false
+
 before_script:
  - cp app/config/parameters.yml.travis app/config/parameters.yml
 # - cp .travis-composer-config.json ~/.composer/config.json
