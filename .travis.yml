@@ -10,7 +10,7 @@ cache:
 
 before_script:
  - cp app/config/parameters.yml.travis app/config/parameters.yml
- - cp .travis-composer-config.json ~/.composer/config.json
+# - cp .travis-composer-config.json ~/.composer/config.json
  - composer install --no-progress --prefer-dist
  - php app/console doctrine:database:create --env=test
  - php app/console doctrine:schema:create --env=test
