@@ -20,3 +20,4 @@ parameters:
 
     upload_path: uploads
     upload_dir:  %kernel.root_dir%/../web/uploads
+    base_url: http://baka.dev/

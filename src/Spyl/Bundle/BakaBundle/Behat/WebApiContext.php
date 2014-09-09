@@ -5,6 +5,7 @@ namespace Spyl\Bundle\BakaBundle\Behat;
 use GuzzleHttp\Client;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
+use Behat\Testwork\Hook\Scope\BeforeScenarioScope;
 
 abstract class WebApiContext extends DefaultContext
 {
@@ -14,9 +15,15 @@ abstract class WebApiContext extends DefaultContext
     public function __construct()
     {
         parent::__construct();
-        $this->client = new Client(['base_url' => 'http://baka.dev/']);
     }
 
+    /**
+     * @BeforeScenario
+     */
+    public function createClient()
+    {
+        $this->client = new Client(['base_url' => $this->getParameter('base_url')]);
+    }
     /**
      * Sends HTTP request to specific relative URL.
      *

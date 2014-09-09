@@ -5,6 +5,8 @@ namespace spec\Spyl\Bundle\BakaBundle\Reader;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
+use Spyl\Bundle\BakaBundle\Model\Content;
+
 class PageReaderSpec extends ObjectBehavior
 {
 
@@ -24,6 +26,6 @@ class PageReaderSpec extends ObjectBehavior
 
     function it_lists_a_manga_content_pages()
     {
-    	//$this->listPages();
+    	$this->listPages();
     }
 }
