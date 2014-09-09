@@ -21,9 +21,6 @@ before_script:
 # Set the GitHub OAuth token to make use of the 6000 per hour rate limit
 # - cp .travis-composer-config.json ~/.composer/config.json
 
-# Database
- - mysql -e 'create database baka;'
-
 # Symfony specific
  - cp app/config/parameters.yml.travis app/config/parameters.yml
  - composer install --no-progress --prefer-dist
@@ -31,6 +28,11 @@ before_script:
  - php app/console doctrine:schema:create --env=test
  - php app/console doctrine:fixtures:load -n --env=test
  - chmod -R 777 /tmp/cache /tmp/logs
+
+# Js
+ - npm install
+ - bower install
+ - gulp
 
 script: bin/phpspec run && bin/behat
 
