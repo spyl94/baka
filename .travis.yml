@@ -22,7 +22,7 @@ before_script:
 # - cp .travis-composer-config.json ~/.composer/config.json
 
 # Database
-- mysql -e 'create database baka;'
+ - mysql -e 'create database baka;'
 
 # Symfony specific
  - cp app/config/parameters.yml.travis app/config/parameters.yml
