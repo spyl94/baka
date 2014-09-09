@@ -4,7 +4,10 @@ set :deploy_to,   "/home/spyl/www/#{application}"
 set :app_path,    "app"
 
 set :user, "root"
-#ssh_options[:keys] = %w(~/.ssh/id_rsa)
+set :ssh_options, {
+  :forward_agent => true,
+  keys: [File.exist?("app/config/id_rsa") ? "app/config/id_rsa" : "%w(~/.ssh/id_rsa)"]
+}
 
 set :repository,  "git@github.com:spyl94/baka.git"
 set :scm,         :git
