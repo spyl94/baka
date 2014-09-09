@@ -31,6 +31,7 @@ before_script:
 
 # Js
  - npm install
+ - npm install -g bower
  - bower install
  - gulp
 
