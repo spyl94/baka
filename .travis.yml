@@ -12,15 +12,20 @@ git:
   submodules: false
 
 before_script:
-# webserver
+# Prepare Webserver
  - sudo apt-get update > /dev/null
  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
  - sudo sed -i -e "s,/var/www,$(pwd)/web,g" /etc/apache2/sites-available/default
  - sudo /etc/init.d/apache2 restart
 
-# Symfony
- - cp app/config/parameters.yml.travis app/config/parameters.yml
+# Set the GitHub OAuth token to make use of the 6000 per hour rate limit
 # - cp .travis-composer-config.json ~/.composer/config.json
+
+# Database
+- mysql -e 'create database baka;'
+
+# Symfony specific
+ - cp app/config/parameters.yml.travis app/config/parameters.yml
  - composer install --no-progress --prefer-dist
  - php app/console doctrine:database:create --env=test
  - php app/console doctrine:schema:create --env=test
