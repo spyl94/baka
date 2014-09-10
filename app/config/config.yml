@@ -90,8 +90,3 @@ fos_rest:
     format_listener:
         rules:
             - { path: ^/, priorities: [ html, json, xml ], fallback_format: ~, prefer_extension: true }
-
-
-sensio_framework_extra:
-    view:
-        annotations: false

@@ -14,3 +14,7 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+sensio_framework_extra:
+    view:
+        annotations: false

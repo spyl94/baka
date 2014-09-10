@@ -34,3 +34,7 @@ assetic:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
+sensio_framework_extra:
+    view:
+        annotations: false
