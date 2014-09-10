@@ -45,8 +45,8 @@ script: gulp && php bin/phpspec run && php bin/behat
 
 after_success:
     - openssl aes-256-cbc -K $encrypted_168c5169b1c4_key -iv $encrypted_168c5169b1c4_iv -in app/config/id_rsa.enc -out app/config/id_rsa -d
-    - if [ $TRAVIS_BRANCH = 'master' ]; then
-        bundle exec cap deploy
+    - if [ $TRAVIS_BRANCH == 'master' ]; then
+        bundle exec cap deploy;
       fi
 
 after_script:
