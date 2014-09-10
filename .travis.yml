@@ -39,7 +39,7 @@ before_script:
  - bower install
  - gulp
 
-script: bin/phpspec run && bin/behat
+script: php bin/phpspec run && php bin/behat
 
 after_success:
     - openssl aes-256-cbc -K $encrypted_168c5169b1c4_key -iv $encrypted_168c5169b1c4_iv -in id_rsa.enc -out id_rsa -d
@@ -49,6 +49,7 @@ after_success:
       fi
 
 after_script:
+  - php -v
   - cat /tmp/logs/test.log
   - sudo cat /var/log/apache2/error.log
 
