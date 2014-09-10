@@ -16,7 +16,10 @@ before_script:
  - sudo apt-get update > /dev/null
  - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl
  - sudo sed -i -e "s,/var/www,$(pwd)/web,g" /etc/apache2/sites-available/default
+ - sudo a2enmod rewrite
  - sudo /etc/init.d/apache2 restart
+ - "export DISPLAY=:99.0"
+ - sleep 3
 
 # Set the GitHub OAuth token to make use of the 6000 per hour rate limit
 # - cp .travis-composer-config.json ~/.composer/config.json
@@ -28,6 +31,7 @@ before_script:
  - php app/console doctrine:schema:create --env=test
  - php app/console doctrine:fixtures:load -n --env=test
  - chmod -R 777 /tmp/cache /tmp/logs
+ - chmod -R 777 app/cache app/logs
 
 # Js
  - npm install
