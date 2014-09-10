@@ -10,7 +10,7 @@ set :ssh_options, {
   keys: [File.exist?("app/config/id_rsa") ? "app/config/id_rsa" : "%w(~/.ssh/id_rsa)"]
 }
 
-set :repository,  "https://github.com:spyl94/baka.git"
+set :repository,  "https://github.com/spyl94/baka.git"
 set :scm,         :git
 
 set :model_manager, "doctrine"
