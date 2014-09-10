@@ -3,7 +3,7 @@
 
   DocumentRoot %TRAVIS_BUILD_DIR%
 
-  <Directory "%TRAVIS_BUILD_DIR%">
+  <Directory "%TRAVIS_BUILD_DIR%"web/>
     Options FollowSymLinks MultiViews ExecCGI
     AllowOverride All
     Order deny,allow
