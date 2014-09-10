@@ -43,3 +43,7 @@ after_success:
     - if [[ $TRAVIS_BRANCH = 'master' ]]; then
         bundle exec cap deploy
       fi
+
+after_script:
+  - cat /tmp/logs/test.log
+
