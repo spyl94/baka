@@ -24,7 +24,7 @@ class MangaController extends FOSRestController
      * )
      *
      *
-     * @Annotations\View()
+     * @Annotations\View(serializerGroups={"list"})
      *
      * @param Request $request the request object
      *
@@ -47,7 +47,7 @@ class MangaController extends FOSRestController
      *   }
      * )
      *
-     * @Annotations\View(templateVar="note")
+     * @Annotations\View(serializerGroups={"details"})
      *
      * @param Request $request the request object
      * @param int     $id      the note id
@@ -65,7 +65,7 @@ class MangaController extends FOSRestController
             throw $this->createNotFoundException("Manga does not exist.");
         }
 
-        return $manga->getContents();
+        return $manga;
     }
 
 
@@ -74,7 +74,7 @@ class MangaController extends FOSRestController
         $em = $this->getDoctrine()->getManager();
 
         $content = $em->getRepository('SpylBakaBundle:Content')->findOneBy([
-        	"id" => $contentId, 
+        	"id" => $contentId,
         	"manga" => $em->getReference('Spyl\Bundle\BakaBundle\Model\Manga', $mangaId)
         ]);
 

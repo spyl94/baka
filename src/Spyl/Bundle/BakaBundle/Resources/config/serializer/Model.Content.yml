@@ -3,5 +3,8 @@ Spyl\Bundle\BakaBundle\Model\Content:
   properties:
     id:
       expose: true
+      groups: [details]
     name:
       expose: true
+      groups: [details]
+

@@ -5,14 +5,16 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        {% block javascripts %}
+        <script src="{{ asset('assets/vendor/angular/angular.min.js')}}"></script>
+        <script src="{{ asset('assets/vendor/angular-route/angular-route.min.js')}}"></script>
+        <script src="{{ asset('assets/vendor/lodash/dist/lodash.min.js')}}"></script>
+        <script src="{{ asset('assets/vendor/restangular/dist/restangular.min.js')}}"></script>
+        <script src="{{ asset('assets/js/app.js')}}"></script>
+        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
     </body>
-    {% block javascripts %}
-        <script src="{{ asset('assets/vendor/angular/angular.min.js')}}"></script>
-        <script src="{{ asset('assets/vendor/angular-resource/angular-resource.min.js')}}"></script>
-        <script src="{{ asset('assets/vendor/angular-route/angular-route.min.js')}}"></script>
-        <script src="{{ asset('assets/js/app.js')}}"></script>
-    {% endblock %}
 </html>

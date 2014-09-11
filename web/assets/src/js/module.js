@@ -2,13 +2,13 @@
 
 angular.module('baka', [
   'ngRoute',
-  'api',
-  ])
-  .config(['$interpolateProvider', '$routeProvider', function ($interpolateProvider, $routeProvider) {
+  'restangular'
+])
+  .config(function ($interpolateProvider, $routeProvider, RestangularProvider) {
     $interpolateProvider.startSymbol('{[{');
     $interpolateProvider.endSymbol('}]}');
 
-    //RestangularProvider.setBaseUrl('/api/v1');
+    RestangularProvider.setBaseUrl('/api');
 
     $routeProvider.
       when('/', {
@@ -17,11 +17,14 @@ angular.module('baka', [
       }).
       when('/mangas/:id', {
         templateUrl: 'assets/src/partials/manga-read.html',
-        controller: 'MangasCtrl'
+        controller: 'MangasReadCtrl'
+      }).
+      when('/mangas/:id/:content', {
+        templateUrl: 'assets/src/partials/manga-read.html',
+        controller: 'MangasReadCtrl'
       }).
       otherwise({
         redirectTo: '/'
       });
 
-}]);
-angular.module('api', ['ngResource']);
+});

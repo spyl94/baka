@@ -3,9 +3,13 @@ Spyl\Bundle\BakaBundle\Model\Manga:
   properties:
     id:
       expose: true
+      groups: [list, details]
     name:
       expose: true
+      groups: [list, details]
     image:
       expose: true
+      groups: [list, details]
     contents:
-      expose: false
+      expose: true
+      groups: [details]

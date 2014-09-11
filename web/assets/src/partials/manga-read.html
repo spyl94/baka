@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+       <a href="#/mangas/{[{ manga.id }]}">
+            <img ng-src="{[{ manga.image }]}">
+            {[{ manga.name }]}
+        </a>
+      <ul class="manga-contents">
+        <li ng-repeat="content in manga.contents">
+          <a href="#/mangas/{[{ manga.id }]}/{[{ content.id }]}">
+             {[{ content.name }]}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-10">
+        <img ng-repeat="page in pages" ng-src="{[{ page }]}" alt="">
+    </div>
+  </div>
+</div>

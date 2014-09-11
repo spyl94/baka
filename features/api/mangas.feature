@@ -39,7 +39,11 @@ Feature: Mangas
 		Then the response status code should be 200
 		And the JSON response should match:
 """
-[
+{
+	"id": @string@,
+	"name": @string@,
+	"image": @string@,
+	"contents": [
 	{
 		"id": @string@,
 		"name": @string@
@@ -48,7 +52,7 @@ Feature: Mangas
 		"id": @string@,
 		"name": @string@
 	}
-]
+]}
 """
 
 	Scenario: list pages for a given manga content
