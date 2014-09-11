@@ -20,3 +20,4 @@ default:
             #paths: [ %paths.base%/features/api ]
             contexts:
                 - Spyl\Bundle\BakaBundle\Behat\MangaContext
+                - Spyl\Bundle\BakaBundle\Behat\CommandContext
