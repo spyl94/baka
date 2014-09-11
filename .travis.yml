@@ -33,6 +33,7 @@ before_script:
  - php app/console doctrine:schema:create --env=test
  - php app/console doctrine:fixtures:load -n --env=test
  - chmod -R 777 /tmp/cache /tmp/logs
+ - mkdir app/cache app/logs
  - chmod -R 777 app/cache app/logs
 
 # Js
