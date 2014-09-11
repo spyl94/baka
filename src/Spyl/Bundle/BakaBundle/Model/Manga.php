@@ -26,7 +26,7 @@ class Manga implements MangaInterface
      */
     private $contents;
 
-    public function __construct() 
+    public function __construct()
     {
         $this->contents = new ArrayCollection();
     }
@@ -40,11 +40,11 @@ class Manga implements MangaInterface
     {
         return $this->id;
     }
-    
+
     /**
      * Sets the value of id.
      *
-     * @param mixed $id the id 
+     * @param mixed $id the id
      *
      * @return self
      */
@@ -64,11 +64,11 @@ class Manga implements MangaInterface
     {
         return $this->name;
     }
-    
+
     /**
      * Sets the value of name.
      *
-     * @param mixed $name the name 
+     * @param mixed $name the name
      *
      * @return self
      */
@@ -88,11 +88,11 @@ class Manga implements MangaInterface
     {
         return $this->image;
     }
-    
+
     /**
      * Sets the value of image.
      *
-     * @param mixed $image the image 
+     * @param mixed $image the image
      *
      * @return self
      */
@@ -111,5 +111,20 @@ class Manga implements MangaInterface
     public function getContents()
     {
         return $this->contents;
+    }
+
+    public function addContent(\Spyl\Bundle\BakaBundle\Model\Content $content)
+    {
+        $content->setManga($this);
+        $this->contents[] = $content;
+
+        return $this;
+    }
+
+    public function removeContent(\Spyl\Bundle\BakaBundle\Model\Content $content)
+    {
+        $this->contents->removeElement($content);
+
+        return $this;
     }
 }

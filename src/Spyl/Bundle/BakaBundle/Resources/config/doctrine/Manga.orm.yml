@@ -6,6 +6,7 @@ Spyl\Bundle\BakaBundle\Model\Manga:
       contents:
         targetEntity: Spyl\Bundle\BakaBundle\Model\Content
         mappedBy: manga
+        cascade: [persist]
   fields:
     id:
       type: string
@@ -16,3 +17,4 @@ Spyl\Bundle\BakaBundle\Model\Manga:
     image:
       type: string
       length: 255
+      nullable: true

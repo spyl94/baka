@@ -4,7 +4,8 @@ Feature: Loading
   I want to be able load mangas I previously uploaded
 
   Background:
-    Given there are the following manga pages:
+    Given the database is empty
+    And there are the following manga pages:
       | manga      | content     | page    |
       | Naruto     | Tome 01     | 000.jpg |
       | Naruto     | Tome 01     | 001.jpg |
@@ -16,4 +17,10 @@ Feature: Loading
   Scenario: load mangas
     When I run "baka:load" command
     Then The command exit code should be 0
+    And the following manga contents are persisted:
+      | manga      | content     |
+      | Naruto     | Tome 01     |
+      | Naruto     | Tome 02     |
+      | Naruto     | Chapitre 01 |
+      | One Piece  | Tome 01     |
     And I should see "Database is now sync with your files"

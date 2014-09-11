@@ -8,7 +8,7 @@ use Spyl\Bundle\BakaBundle\Model\Content;
 
 class PageReader
 {
-
+    private $uploadPath;
     private $uploadDir;
     private $router;
 

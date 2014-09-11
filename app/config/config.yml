@@ -94,3 +94,9 @@ fos_rest:
 sensio_framework_extra:
     view:
         annotations: false
+
+# stof_doctrine_extensions:
+#     default_locale: en_US
+#     orm:
+#         default:
+#             sluggable: true

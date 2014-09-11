@@ -17,6 +17,7 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
+        "stof/doctrine-extensions-bundle": "~1.1@dev",
         "incenteev/composer-parameter-handler": "~2.0",
         "jms/di-extra-bundle": "1.4.*@dev",
         "jms/security-extra-bundle": "1.5.*@dev",
