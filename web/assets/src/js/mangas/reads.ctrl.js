@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('baka')
-    .controller('MangasReadCtrl', function ($scope, $routeParams, $document, Restangular, Fullscreen) {
+    .controller('MangasReadCtrl', function ($scope, $routeParams, $document, Restangular, Fullscreen, hotkeys) {
 
     Restangular.one('mangas', $routeParams.id).get().then(function(manga) {
       $scope.manga = manga;
@@ -25,6 +25,22 @@ angular.module('baka')
         .one('contents', content)
         .getList().then(function(pages) {
           $scope.pages = pages;
+      });
+
+      hotkeys.add({
+        combo: 'right',
+        description: 'Next Page',
+        callback: function() {
+          $scope.nextPage();
+        }
+      });
+
+      hotkeys.add({
+        combo: 'left',
+        description: 'Prev Page',
+        callback: function() {
+          $scope.prevPage();
+        }
       });
 
 

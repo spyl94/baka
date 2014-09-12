@@ -21,27 +21,15 @@ angular.module('baka', [
       }).
       when('/mangas/:id', {
         templateUrl: 'assets/src/partials/manga-read.html',
-        controller: 'MangasReadCtrl',
-        hotkeys: [
-          ['right', 'Next page', 'nextPage()'],
-          ['left',  'Previous page', 'prevPage()']
-        ]
+        controller: 'MangasReadCtrl'
       }).
       when('/mangas/:id/:content', {
         templateUrl: 'assets/src/partials/manga-read.html',
-        controller: 'MangasReadCtrl',
-        hotkeys: [
-          ['right', 'Next page', 'nextPage()'],
-          ['left',  'Previous page', 'prevPage()']
-        ]
+        controller: 'MangasReadCtrl'
       }).
       when('/mangas/:id/:content/:page', {
         templateUrl: 'assets/src/partials/manga-read.html',
-        controller: 'MangasReadCtrl',
-        hotkeys: [
-          ['right', 'Next page', 'nextPage()'],
-          ['left',  'Previous page', 'prevPage()']
-        ]
+        controller: 'MangasReadCtrl'
       }).
       otherwise({
         redirectTo: '/'
