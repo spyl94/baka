@@ -38,7 +38,13 @@ class MangaContext extends WebApiContext
             if (!is_dir($contentDir)) {
                 mkdir($contentDir, 0777, true);
             }
-            fopen($contentDir . '/' . $data['page'], "w");
+            $ch = curl_init('http://lorempixel.com/400/200/');
+            $fp = fopen($contentDir . '/' . $data['page'], "wb");
+            curl_setopt($ch, CURLOPT_FILE, $fp);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_exec($ch);
+            curl_close($ch);
+            fclose($fp);
         }
     }
 

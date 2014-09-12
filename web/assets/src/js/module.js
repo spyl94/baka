@@ -23,6 +23,10 @@ angular.module('baka', [
         templateUrl: 'assets/src/partials/manga-read.html',
         controller: 'MangasReadCtrl'
       }).
+      when('/mangas/:id/:content/:page', {
+        templateUrl: 'assets/src/partials/manga-read.html',
+        controller: 'MangasReadCtrl'
+      }).
       otherwise({
         redirectTo: '/'
       });

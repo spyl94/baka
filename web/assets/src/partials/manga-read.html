@@ -1,20 +1,23 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2">
-       <a href="#/mangas/{[{ manga.id }]}">
-            <img ng-src="{[{ manga.image }]}">
-            {[{ manga.name }]}
-        </a>
-      <ul class="manga-contents">
-        <li ng-repeat="content in manga.contents">
+    <div class="col-md-2 sidebar">
+      <h2>{[{ manga.name }]}</h2>
+      <ul class="nav nav-sidebar">
+        <li ng-repeat="content in manga.contents" ng-class="{ active: currentContent == content.name }">
           <a href="#/mangas/{[{ manga.id }]}/{[{ content.id }]}">
              {[{ content.name }]}
           </a>
         </li>
       </ul>
     </div>
-    <div class="col-md-10">
-        <img ng-repeat="page in pages" ng-src="{[{ page }]}" alt="">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="row">
+        <a ng-class="prevPageDisabled()" href ng-click="prevPage()" class="btn">Prev</a>
+        <a ng-class="nextPageDisabled()" href ng-click="nextPage()" class="btn">Next</a>
+      </div>
+      <div class="row">
+        <img ng-repeat="(key, page) in pages" ng-src="{[{ page }]}" ng-show="key == currentPage" ng-click="nextPage()" alt="" style="cursor: pointer">
+      </div>
     </div>
   </div>
 </div>
