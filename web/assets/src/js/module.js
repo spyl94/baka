@@ -3,7 +3,8 @@
 angular.module('baka', [
   'ngRoute',
   'restangular',
-  'cfp.hotkeys'
+  'cfp.hotkeys',
+  'ng-preload-src'
 ])
   .config(function ($interpolateProvider, $routeProvider, RestangularProvider) {
     $interpolateProvider.startSymbol('{[{');
