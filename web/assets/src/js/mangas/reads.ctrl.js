@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('baka')
-    .controller('MangasReadCtrl', function ($scope, $routeParams, Restangular) {
+    .controller('MangasReadCtrl', function ($scope, $routeParams, $document, Restangular) {
 
     Restangular.one('mangas', $routeParams.id).get().then(function(manga) {
       $scope.manga = manga;
@@ -30,6 +30,7 @@ angular.module('baka')
       $scope.prevPage = function() {
         if ($scope.currentPage > 0) {
           $scope.currentPage--;
+          $document.scrollTop(0.0);
         }
       };
 
@@ -40,6 +41,7 @@ angular.module('baka')
       $scope.nextPage = function() {
         if ($scope.currentPage < $scope.pages.length - 1) {
           $scope.currentPage++;
+          $document.scrollTop(0.0);
         }
       };
 
