@@ -35,7 +35,7 @@ class PageReader
 
         $pages = [];
         try {
-            $finder->files()->in($dir);
+            $finder->files()->in($dir)->sortByName();
             foreach ($finder as $file) {
                 $pages[] = $host . '/' . $this->uploadPath . '/' . $path . '/' . $file->getRelativePathname();
            }
