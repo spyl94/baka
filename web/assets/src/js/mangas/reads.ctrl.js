@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('baka')
-    .controller('MangasReadCtrl', function ($scope, $routeParams, $document, Restangular) {
+    .controller('MangasReadCtrl', function ($scope, $routeParams, $document, Restangular, Fullscreen) {
 
     Restangular.one('mangas', $routeParams.id).get().then(function(manga) {
       $scope.manga = manga;
@@ -26,6 +26,15 @@ angular.module('baka')
         .getList().then(function(pages) {
           $scope.pages = pages;
       });
+
+
+      $scope.goFullscreen = function () {
+         if (Fullscreen.isEnabled()) {
+            Fullscreen.cancel();
+         } else {
+          Fullscreen.all();
+        }
+      };
 
       $scope.prevPage = function() {
         if ($scope.currentPage > 0) {

@@ -5,7 +5,8 @@ angular.module('baka', [
   'restangular',
   'cfp.hotkeys',
   'ng-preload-src',
-  'duScroll'
+  'duScroll',
+  'FBAngular'
 ])
   .config(function ($interpolateProvider, $routeProvider, RestangularProvider) {
     $interpolateProvider.startSymbol('{[{');

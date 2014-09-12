@@ -1,6 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2 sidebar">
+      <a href ng-click="goFullscreen()">Fullscreen</a>
       <h2>{[{ manga.name }]}</h2>
       <ul class="nav nav-sidebar">
         <li ng-repeat="content in manga.contents" ng-class="{ active: currentContent == content.name }">
