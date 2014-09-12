@@ -2,7 +2,8 @@
 
 angular.module('baka', [
   'ngRoute',
-  'restangular'
+  'restangular',
+  'cfp.hotkeys'
 ])
   .config(function ($interpolateProvider, $routeProvider, RestangularProvider) {
     $interpolateProvider.startSymbol('{[{');
@@ -17,15 +18,27 @@ angular.module('baka', [
       }).
       when('/mangas/:id', {
         templateUrl: 'assets/src/partials/manga-read.html',
-        controller: 'MangasReadCtrl'
+        controller: 'MangasReadCtrl',
+        hotkeys: [
+          ['right', 'Next page', 'nextPage()'],
+          ['left',  'Previous page', 'prevPage()']
+        ]
       }).
       when('/mangas/:id/:content', {
         templateUrl: 'assets/src/partials/manga-read.html',
-        controller: 'MangasReadCtrl'
+        controller: 'MangasReadCtrl',
+        hotkeys: [
+          ['right', 'Next page', 'nextPage()'],
+          ['left',  'Previous page', 'prevPage()']
+        ]
       }).
       when('/mangas/:id/:content/:page', {
         templateUrl: 'assets/src/partials/manga-read.html',
-        controller: 'MangasReadCtrl'
+        controller: 'MangasReadCtrl',
+        hotkeys: [
+          ['right', 'Next page', 'nextPage()'],
+          ['left',  'Previous page', 'prevPage()']
+        ]
       }).
       otherwise({
         redirectTo: '/'

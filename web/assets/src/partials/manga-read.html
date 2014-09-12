@@ -12,11 +12,12 @@
     </div>
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
-        <a ng-class="prevPageDisabled()" href ng-click="prevPage()" class="btn">Prev</a>
-        <a ng-class="nextPageDisabled()" href ng-click="nextPage()" class="btn">Next</a>
-      </div>
-      <div class="row">
         <img ng-repeat="(key, page) in pages" ng-src="{[{ page }]}" ng-show="key == currentPage" ng-click="nextPage()" alt="" style="cursor: pointer">
+      </div>
+      <div class="row pagination">
+        <br>
+        <a ng-class="prevPageDisabled()" href ng-click="prevPage()" class="btn btn-default">Prev</a>
+        <a ng-class="nextPageDisabled()" href ng-click="nextPage()" class="btn btn-default">Next</a>
       </div>
     </div>
   </div>

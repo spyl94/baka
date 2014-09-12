@@ -46,7 +46,6 @@ angular.module('baka')
       $scope.nextPageDisabled = function() {
         return $scope.currentPage === $scope.pages.length - 1 ? 'disabled' : '';
       };
-
     });
 
 });
