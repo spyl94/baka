@@ -41,7 +41,9 @@ You should use the provided environment with Vagrant.
 
 # Tests
 
-    gulp && php bin/phpspec run && php bin/behat
+    ./test.sh
+
+
 
 
 
