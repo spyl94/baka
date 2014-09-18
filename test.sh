@@ -2,9 +2,10 @@
 
 pids=$(pidof /usr/bin/Xvfb)
 if ! [ -n "$pids" ]; then
-    xvfb-run :99 -ac -screen 0 1024x768x24 &
-    export DISPLAY=:99
+    /usr/bin/Xvfb :99 -ac -screen 0 1024x768x24 &
 fi
+
+export DISPLAY=:99
 
 gulp
 php bin/phpspec run
