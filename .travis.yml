@@ -44,11 +44,9 @@ before_script:
 
 # Protractor
  - sudo apt-get install chromium-browser
- - sudo webdriver-manager update
-
-before_install:
-   - "export DISPLAY=:99.0"
-   - "sh -e /etc/init.d/xvfb start"
+ - webdriver-manager update --standalone
+ - "export DISPLAY=:99.0"
+ - "sh -e /etc/init.d/xvfb start"
 
 script:
     - gulp && php bin/phpspec run && php bin/behat && protractor cucumberConf.js
