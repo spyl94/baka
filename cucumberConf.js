@@ -17,7 +17,10 @@ exports.config = {
   ],
 
   cucumberOpts: {
-    require: 'web/assets/tests/stepDefinitions.js',
+    require: [
+      'web/assets/tests/homepageSteps.js',
+      'web/assets/tests/readSteps.js'
+    ],
     format: 'pretty'
   }
 };

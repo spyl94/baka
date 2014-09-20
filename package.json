@@ -9,6 +9,8 @@
   "author": "spyl",
   "license": "BSD-2-Clause",
   "devDependencies": {
+    "chai": "~1.8.1",
+    "chai-as-promised": "^4.1.0",
     "connect-livereload": "~0.4.0",
     "cucumber": "^0.4.4",
     "gulp": "~3.8.8",

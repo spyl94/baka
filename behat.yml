@@ -17,7 +17,11 @@ default:
            Behat\Symfony2Extension: ~
     suites:
         api:
-            #paths: [ %paths.base%/features/api ]
+            paths: [ %paths.base%/features/api ]
+            contexts:
+                - Spyl\Bundle\BakaBundle\Behat\MangaContext
+        backend:
+            paths: [ %paths.base%/features/backend ]
             contexts:
                 - Spyl\Bundle\BakaBundle\Behat\MangaContext
                 - Spyl\Bundle\BakaBundle\Behat\CommandContext
