@@ -25,14 +25,12 @@ module.exports = function() {
             { index: 0, text: 'Chapitre 01' },
             { index: 1, text: 'Tome 01' },
             { index: 2, text: 'Tome 02' }
-        ]);
-        next();
+        ]).and.notify(next);
     });
 
     this.Then(/^the default content is "(.*)"$/, function(defaultContent, next) {
 
         var content = element(by.css('.nav-sidebar li.active a')).getText();
-        expect(content).to.eventually.equal(defaultContent);
-        next();
+        expect(content).to.eventually.equal(defaultContent).and.notify(next);
     });
 };

@@ -21,15 +21,13 @@ module.exports = function() {
           };
         });
 
-        expect(mangas).to.eventually.eql([{index: 0, text: 'Naruto'},{index: 1, text: 'One Piece'}]);
-        next();
+        expect(mangas).to.eventually.eql([{index: 0, text: 'Naruto'},{index: 1, text: 'One Piece'}]).and.notify(next);
     });
 
     this.Then(/^I can click to start reading$/, function(next) {
 
         element.all(by.css('.nav-sidebar li a')).first().click().then(function() {
-            expect(browser.getCurrentUrl()).to.eventually.equal('http://baka.dev/app_test.php#/mangas/Naruto');
-            next();
+            expect(browser.getCurrentUrl()).to.eventually.equal('http://baka.dev/app_test.php#/mangas/Naruto').and.notify(next);
         });
     });
 };
