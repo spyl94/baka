@@ -4,6 +4,7 @@ app/logs/*
 
 app/bootstrap.php.cache
 app/config/parameters.yml
+app/config/deploy.rb
 
 !app/cache/.gitkeep
 !app/logs/.gitkeep

@@ -12,13 +12,15 @@ Baka is an open source platform available to every manga readers.
 
     git clone https://github.com/spyl94/baka.git
 
-## Automatic (Capifony)
+### Automatic (Capifony)
+
+    cp app/config/deploy.rb.dist app/config/deploy.rb
 
 Modify deploy.rb according to your needs.
 
     cap deploy
 
-## Manual
+### Manual
 
     composer install
     npm install && npm install -g bower
@@ -35,7 +37,6 @@ You can see an example of VirtualHost file with Apache 2.4+ and PHP-FPM, used by
 https://github.com/spyl94/baka/blob/master/app/config/travis-ci-apache
 
 # Development & Contributing
-
 
 You should use the provided environment with Vagrant.
 
