@@ -1,4 +1,5 @@
 
+var env = require('./environment.js');
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 chai.use(chaiAsPromised);
@@ -8,7 +9,7 @@ var expect = chai.expect;
 module.exports = function() {
 
     this.Given(/^I am on the reading page of "(.*)"$/, function(manga, next) {
-        browser.get('http://baka.dev/app_test.php#/mangas/' + manga);
+        browser.get(env.baseUrl+'#/mangas/' + manga);
         next();
     });
 
