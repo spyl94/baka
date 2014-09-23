@@ -8,7 +8,7 @@ exports.config = {
   },
 
   // A base URL for your application under test.
-  baseUrl: 'http://baka.dev/app_test.php',
+  baseUrl: (process.env.BASE_URL || 'http://baka.dev/app_test.php'),
   framework: 'cucumber',
 
   // Spec patterns are relative to this directory.

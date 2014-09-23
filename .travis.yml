@@ -10,6 +10,9 @@ cache:
 git:
   submodules: false
 
+env:
+  - BASE_URL="http://localhost/app_test.php"
+
 before_script:
 # Prepare Webserver
  - sudo apt-get install apache2 libapache2-mod-fastcgi
