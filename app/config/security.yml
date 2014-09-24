@@ -30,6 +30,7 @@ security:
         api:
             pattern:   ^/api
             stateless: true
+            anonymous: true
             lexik_jwt:
                authorization_header: # check token in Authorization Header
                   enabled: true
@@ -40,5 +41,6 @@ security:
 
 
     access_control:
+        - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/users, roles: IS_AUTHENTICATED_FULLY }

@@ -42,7 +42,7 @@ app.config(function ($interpolateProvider, $routeProvider, RestangularProvider) 
 app.run(function(Restangular, $rootScope, $window) {
 
     if ($window.sessionStorage.token) {
-        Restangular.setDefaultHeaders({Authorization:'Bearer '+ $window.sessionStorage.token});
+        Restangular.setDefaultHeaders({Authorization:'Bearer ' + $window.sessionStorage.token});
     }
 
     Restangular.setErrorInterceptor(function(response) {
