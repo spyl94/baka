@@ -1,3 +1,6 @@
+api_login_check:
+   path: /api/login_check
+
 spyl_baka:
     resource: "Spyl\Bundle\BakaBundle\Controller\Front\DefaultController"
     type:     annotation

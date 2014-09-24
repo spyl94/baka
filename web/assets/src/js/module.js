@@ -1,14 +1,16 @@
 'use strict';
 
-angular.module('baka', [
+var app = angular.module('baka', [
   'ngRoute',
   'restangular',
   'cfp.hotkeys',
   'ng-preload-src',
   'duScroll',
+  'ui.bootstrap',
   'FBAngular'
-])
-  .config(function ($interpolateProvider, $routeProvider, RestangularProvider) {
+]);
+
+app.config(function ($interpolateProvider, $routeProvider, RestangularProvider) {
     $interpolateProvider.startSymbol('{[{');
     $interpolateProvider.endSymbol('}]}');
 
@@ -36,3 +38,19 @@ angular.module('baka', [
       });
 
 });
+
+app.run(function(Restangular, $rootScope, $window) {
+
+    if ($window.sessionStorage.token) {
+        Restangular.setDefaultHeaders({Authorization:'Bearer '+ $window.sessionStorage.token});
+    }
+
+    Restangular.setErrorInterceptor(function(response) {
+        if(response.status === 401) {
+            $rootScope.$broadcast('event:auth-login-required');
+            return false;
+        }
+        return true;
+    });
+});
+

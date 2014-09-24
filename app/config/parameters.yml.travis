@@ -21,3 +21,7 @@ parameters:
     upload_path: uploads
     upload_dir:  %kernel.root_dir%/../web/uploads
     base_url: http://localhost/
+    private_key_path: %kernel.root_dir%/var/jwt/private-test.pem
+    public_key_path:  %kernel.root_dir%/var/jwt/public-test.pem
+    pass_phrase:      'spyl'
+    token_ttl:        86400

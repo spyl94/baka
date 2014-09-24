@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -64,6 +64,10 @@ doctrine:
                     type: yml
                     dir: %kernel.root_dir%/../src/Spyl/Bundle/BakaBundle/Resources/config/doctrine
                     prefix: Spyl\Bundle\BakaBundle\Model
+            SpylUserBundle:
+                    type: yml
+                    dir: %kernel.root_dir%/../src/Spyl/Bundle/UserBundle/Resources/config/doctrine
+                    prefix: Spyl\Bundle\UserBundle\Model
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -100,3 +104,14 @@ sensio_framework_extra:
 #     orm:
 #         default:
 #             sluggable: true
+
+lexik_jwt_authentication:
+    private_key_path: %kernel.root_dir%/var/jwt/private.pem   # ssh private key path
+    public_key_path:  %kernel.root_dir%/var/jwt/public.pem    # ssh public key path
+    pass_phrase:      'spyl'                                      # ssh key pass phrase
+    token_ttl:        86400                                   # token ttl - defaults to 86400
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: login
+    user_class: Spyl\Bundle\UserBundle\Model\User

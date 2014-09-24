@@ -22,9 +22,11 @@
     "angular-route": "~1.2.23",
     "bootstrap-sass-official": "v3.2.0+2",
     "lodash": "~2.4.1",
+    "angular-http-auth": "latest",
     "restangular": "~1.4.0",
     "angular-hotkeys": "chieffancypants/angular-hotkeys#~1.4.3",
     "ng-preload-src": "~0.0.4",
-    "angular-scroll": "~0.6.2"
+    "angular-scroll": "~0.6.2",
+    "angular-bootstrap": "~0.11.0"
   }
 }

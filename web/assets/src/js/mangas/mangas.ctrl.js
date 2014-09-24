@@ -6,5 +6,6 @@ angular.module('baka')
     Restangular.all('mangas').getList().then(function(mangas) {
       $scope.mangas = mangas;
     });
+
 });
 

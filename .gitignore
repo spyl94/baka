@@ -6,6 +6,9 @@ app/bootstrap.php.cache
 app/config/parameters.yml
 app/config/deploy.rb
 
+app/var/jwt/private.pem
+app/var/jwt/public.pem
+
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 

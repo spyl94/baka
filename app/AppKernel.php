@@ -21,7 +21,10 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
             new Spyl\Bundle\BakaBundle\SpylBakaBundle(),
+            new Spyl\Bundle\UserBundle\SpylUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -68,7 +68,7 @@ gulp.task('js', function () {
   .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
     .pipe(ngAnnotate())
-    .pipe(uglify())
+//    .pipe(uglify())
   .pipe(sourcemaps.write())
   .pipe(gulp.dest(paths.js_compiled))
 });

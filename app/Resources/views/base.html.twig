@@ -19,13 +19,15 @@
         <script src="{{ asset('assets/vendor/angular-hotkeys/build/hotkeys.min.js')}}"></script>
         <script src="{{ asset('assets/vendor/ng-preload-src/ng-preload-src.min.js')}}"></script>
         <script src="{{ asset('assets/vendor/angular-scroll/angular-scroll.min.js')}}"></script>
+        <script src="{{ asset('assets/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js')}}"></script>
+        <script src="{{ asset('assets/vendor/angular-http-auth/src/http-auth-interceptor.js')}}"></script>
         <script src="{{ asset('assets/dist/angular-fullscreen.js')}}"></script>
         <script src="{{ asset('assets/js/app.js')}}"></script>
         {% endblock %}
     </head>
-    <body>
+    <body ng-controller="SecurityCtrl">
         {% block header %}
-        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div ng-controller="NavbarCtrl" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -37,12 +39,9 @@
                 <a class="navbar-brand" href="#">Baka.spyl.net</a>
               </div>
               <div class="navbar-collapse collapse">
-{#                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#">Dashboard</a></li>
-                  <li><a href="#">Settings</a></li>
-                  <li><a href="#">Profile</a></li>
-                  <li><a href="#">Help</a></li>
-                </ul> #}
+                 <ul class="nav navbar-nav navbar-right">
+                  <li><a ng-click="logout()" href="#">Logout</a></li>
+                </ul>
 {#                 <form class="navbar-form navbar-right">
                   <input type="text" class="form-control" placeholder="Search...">
                 </form> #}
