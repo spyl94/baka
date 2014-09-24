@@ -27,8 +27,8 @@ class PageReader
 
         $finder = new Finder();
 
-        $path =  $content->getManga()->getName() . DIRECTORY_SEPARATOR . $content->getName();
-        $dir = $this->uploadDir . DIRECTORY_SEPARATOR . $path;
+        $path = $content->getVisibility() . '/' . $content->getManga()->getName() . '/' .  $content->getName();
+        $dir = $this->uploadDir . '/' . $path;
 
         $context = $this->router->getContext();
         $host = $context->getScheme().'://'.$context->getHost();

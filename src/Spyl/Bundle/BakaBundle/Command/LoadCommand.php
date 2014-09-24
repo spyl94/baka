@@ -30,47 +30,57 @@ class LoadCommand extends ContainerAwareCommand
         $finder = new Finder();
 
         foreach ($finder->directories()->in($uploadDir)->depth('== 0') as $directory) {
-          $name = $directory->getRelativePathname();
-          $manga = $repository->findOneBy(['name' => $name]);
+          $visibility = $directory->getRelativePathname();
 
-          if ($manga == null) {
-            $manga = new Manga();
-            $manga->setName($name);
-            $manga->setId($name);
-          }
+          foreach ((new Finder())->directories()->in((string) $directory)->depth('== 0') as $directory) {
+              $name = $directory->getRelativePathname();
+              $manga = $repository->findOneBy(['name' => $name]);
 
-          $previousContents = $manga->getContents();
-          $actualContents = (new Finder())->directories()->in((string) $directory)->depth('== 0');
-
-          // remove olds
-          foreach ($manga->getContents() as $content) {
-             $found = false;
-             foreach ($actualContents as $actual) {
-               if ($content->getName() == $actual->getRelativePathname()) {
-                  $found = true;
-               }
-             }
-             if (!$found) {
-                $manga->removeContent($content);
-             }
-          }
-
-          // add news
-          foreach ($actualContents as $content) {
-            $found = false;
-              foreach ($previousContents as $previous) {
-                  if ($content->getRelativePathname() == $previous->getName()) {
-                      $found = $content->getRelativePathname();
-                  }
+              if ($manga == null) {
+                $manga = new Manga();
+                $manga->setName($name);
+                $manga->setId($name);
               }
-              if (!$found) {
-                $manga->addContent((new Content)->setId($content->getRelativePathname())->setName($content->getRelativePathname()));
-              }
-          }
 
-          $em->persist($manga);
+              $previousContents = $manga->getContents();
+              $actualContents = (new Finder())->directories()->in((string) $directory)->depth('== 0');
+
+              // remove olds
+              foreach ($manga->getContents() as $content) {
+                if ($content->getVisibility() == $visibility) {
+                    $found = false;
+                    foreach ($actualContents as $actual) {
+                      if ($content->getName() == $actual->getRelativePathname()) {
+                         $found = true;
+                      }
+                    }
+                    if (!$found) {
+                       $manga->removeContent($content);
+                    }
+                }
+              }
+
+              // add news
+              foreach ($actualContents as $content) {
+                    $found = false;
+                    foreach ($previousContents as $previous) {
+                        if ($content->getRelativePathname() == $previous->getName()) {
+                            $found = $content->getRelativePathname();
+                        }
+                    }
+                    if (!$found) {
+                      $manga->addContent(
+                        (new Content)
+                          ->setId($content->getRelativePathname())
+                          ->setName($content->getRelativePathname())
+                          ->setVisibility($visibility)
+                        );
+                    }
+              }
+              $em->persist($manga);
+          }
+          $em->flush();
         }
-        $em->flush();
 
         $output->writeln("Database is now sync with your files");
     }

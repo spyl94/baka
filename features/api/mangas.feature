@@ -5,7 +5,7 @@ Feature: Mangas
 
 	Background:
 		Given there are mangas with content fixtures
-		And there are the following manga pages:
+		And there are the following manga pages in "Public":
 			| manga      | content | page    |
 			| Naruto     | Tome 01 | 000.jpg |
 			| Naruto     | Tome 01 | 001.jpg |

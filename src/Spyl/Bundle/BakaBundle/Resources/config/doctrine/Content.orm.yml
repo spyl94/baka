@@ -17,3 +17,6 @@ Spyl\Bundle\BakaBundle\Model\Content:
     name:
       type: string
       length: 255
+    visibility:
+      type: string
+      length: 255

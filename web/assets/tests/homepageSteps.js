@@ -22,13 +22,17 @@ module.exports = function() {
           };
         });
 
-        expect(mangas).to.eventually.eql([{index: 0, text: 'Naruto'},{index: 1, text: 'One Piece'}]).and.notify(next);
+        expect(mangas).to.eventually.eql([
+            {index: 0, text: 'Death Note'},
+            {index: 1, text: 'Naruto'},
+            {index: 2, text: 'One Piece'}
+        ]).and.notify(next);
     });
 
     this.Then(/^I can click to start reading$/, function(next) {
 
         element.all(by.css('.nav-sidebar li a')).first().click().then(function() {
-            expect(browser.getCurrentUrl()).to.eventually.equal(env.baseUrl+'#/mangas/Naruto').and.notify(next);
+            expect(browser.getCurrentUrl()).to.eventually.equal(env.baseUrl+'#/mangas/Death%20Note').and.notify(next);
         });
     });
 };

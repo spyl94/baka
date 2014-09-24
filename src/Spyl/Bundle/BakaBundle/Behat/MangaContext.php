@@ -27,14 +27,14 @@ class MangaContext extends WebApiContext
     }
 
     /**
-     * @Given /^there are the following manga pages:$/
+     * @Given /^there are the following manga pages in "([^"]*)":$/
      */
-    public function thereAreMangasPages(TableNode $table)
+    public function thereAreMangasPages($folder, TableNode $table)
     {
         $dir = $this->getParameter('upload_dir');
 
         foreach ($table->getHash() as $data) {
-            $contentDir = $dir . '/' . $data['manga'] . '/' . $data['content'];
+            $contentDir = $dir . '/' . $folder . '/' . $data['manga'] . '/' . $data['content'];
             if (!is_dir($contentDir)) {
                 mkdir($contentDir, 0777, true);
             }

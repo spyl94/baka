@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo chmod -R 777 /tmp/cache /tmp/logs/
+sudo chmod -R 777 /tmp/cache /tmp/logs
 
 pids=$(pidof /usr/bin/Xvfb)
 if ! [ -n "$pids" ]; then

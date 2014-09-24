@@ -14,16 +14,19 @@ class LoadMangaContentData extends AbstractFixture implements DependentFixtureIn
             "id" => "tome-01",
             "manga" => "naruto",
             "name" => "Tome 01",
+            "visibility" => "Public",
         ],
         [
             "id" => "tome-02",
             "manga" => "naruto",
             "name" => "Tome 02",
+            "visibility" => "Public",
         ],
         [
             "id" => "tome-01",
             "manga" => "death-note",
             "name" => "Tome 01",
+            "visibility" => "Public",
         ]
     ];
 
@@ -39,6 +42,7 @@ class LoadMangaContentData extends AbstractFixture implements DependentFixtureIn
                 ->setId($contentData['id'])
                 ->setManga($this->getReference('manga.'.$contentData['manga']))
                 ->setName($contentData['name'])
+                ->setVisibility($contentData['visibility'])
                 ;
             $manager->persist($content);
         }
